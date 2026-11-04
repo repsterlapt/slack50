@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SlackDuel – Ține echilibrul. Câștigă duelul!</title>
+<style>
+:root{--bg:#fbf8f3;--surf:#fff;--tx:#17302f;--mut:#5b6f6e;--teal:#0f7f80;--tealD:#0a5c5d;--or:#f26a1b;--bd:#e3dccf;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b1b;--surf:#152727;--tx:#eef5f4;--mut:#9fb5b3;--teal:#2bb3b4;--tealD:#1a8a8b;--or:#ff8a45;--bd:#274141}}
+:root[data-theme="dark"]{--bg:#0e1b1b;--surf:#152727;--tx:#eef5f4;--mut:#9fb5b3;--teal:#2bb3b4;--tealD:#1a8a8b;--or:#ff8a45;--bd:#274141}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.w{max-width:980px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h1,h2,h3{line-height:1.15;margin:0 0 12px}
+h2{font-size:clamp(1.6rem,4vw,2.1rem)}
+p{margin:0 0 12px}.mut{color:var(--mut)}
+.hero{background:var(--teal);color:#fff;padding:64px 0 72px;text-align:center}
+.hero .tag{letter-spacing:.14em;font-size:.8rem;opacity:.85}
+.hero h1{font-size:clamp(2.6rem,9vw,4.6rem);margin:8px 0}
+.hero h1 span{color:#ffd9bf}
+.hero p{font-size:1.2rem;max-width:560px;margin:0 auto 24px}
+.btn{display:inline-block;background:var(--or);color:#fff;font-weight:700;padding:14px 26px;border-radius:999px;text-decoration:none;border:0;font-size:1rem;cursor:pointer}
+.btn.alt{background:transparent;border:2px solid #fff;margin-left:8px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:16px;padding:20px}
+.card h3{font-size:1.1rem;color:var(--teal)}
+.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--or);color:#fff;font-weight:700;margin-bottom:10px}
+ul.ck{list-style:none;padding:0;margin:0}ul.ck li{padding:6px 0 6px 28px;position:relative}
+ul.ck li::before{content:"✓";position:absolute;left:0;color:var(--or);font-weight:700}
+.price{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.price .big{font-size:3rem;font-weight:800;color:var(--or);line-height:1}
+.alt-bg{background:var(--surf);border-block:1px solid var(--bd)}
+label{display:block;font-weight:600;margin:12px 0 4px;font-size:.92rem}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit}
+.row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.row{grid-template-columns:1fr}.btn.alt{margin:10px 0 0}}
+#out{display:none;margin-top:16px;padding:14px;border-radius:12px;background:var(--bg);border:1px dashed var(--teal);white-space:pre-wrap}
+.qr{text-align:center}
+#qr img{width:min(260px,70vw);height:auto;background:#fff;padding:12px;border-radius:16px;border:1px solid var(--bd)}
+footer{padding:28px 0;text-align:center;color:var(--mut);font-size:.9rem}
+</style>
+</head>
+<body>
+<header class="hero"><div class="w">
+<div class="tag">DUEL DE ECHILIBRU PE SLACKLINE</div>
+<h1>Slack<span>Duel</span></h1>
+<p>Ține echilibrul. Câștigă duelul! Doi jucători, săbii moi din spumă, iar cine cade primul pierde.</p>
+<a class="btn" href="#comanda">Comandă setul</a><a class="btn alt" href="#cum">Cum funcționează</a>
+</div></header>
+
+<section id="cum"><div class="w">
+<h2>Cum funcționează</h2>
+<p class="mut">Un set complet de duel, pe care îl montezi singur, oriunde: acasă, în tabără sau la școală.</p>
+<div class="grid">
+<div class="card"><div class="num">1</div><h3>Urcă pe linie</h3><p>Doi jucători pe un slackline lat și jos, cu saltele de protecție dedesubt.</p></div>
+<div class="card"><div class="num">2</div><h3>Duelează-te</h3><p>Fiecare primește o sabie moale din spumă. Scopul: să-ți dezechilibrezi adversarul.</p></div>
+<div class="card"><div class="num">3</div><h3>Scor automat</h3><p>Salteaua cu senzori și LED arată imediat cine a atins primul solul.</p></div>
+</div></div></section>
+
+<section class="alt-bg"><div class="w">
+<h2>Arena SlackDuel</h2>
+<div class="grid">
+<div class="card"><h3>Ce conține kitul</h3><ul class="ck"><li>Slackline lat și ancore</li><li>Două săbii din spumă</li><li>Saltele de protecție</li><li>Modul cu senzori și LED</li><li>Regulament și instrucțiuni</li></ul></div>
+<div class="card"><h3>De ce e special</h3><ul class="ck"><li>Sigur: linie joasă, saltele, instructor</li><li>Mobil: montaj în aproximativ 30 de minute</li><li>Scorul se înregistrează automat</li><li>Variante: 1 contra 1, turneu, versiune joasă pentru copii</li></ul></div>
+</div></div></section>
+
+<section><div class="w">
+<h2>Setul SlackDuel</h2>
+<div class="price">
+<div class="card"><div class="big">1 set</div><p>Tot ce ai nevoie pentru duel, gata de montat în aproximativ 30 de minute.</p></div>
+<div class="card"><h3>Ambalaj</h3><p>Geantă de transport cu fermoar, din textil rezistent, în verde-teal și portocaliu. Electronica vine în cutie rigidă, iar săbiile în husă.</p></div>
+</div>
+<p class="mut" style="margin-top:14px">Prețul setului îl anunțăm în curând. Scrie-ne pe @slackduel.</p>
+</div></section>
+
+<section class="alt-bg"><div class="w">
+<h2>Pentru cine?</h2>
+<div class="grid">
+<div class="card"><h3>Tineri 18–30</h3><p>Grupuri de prieteni și studenți.</p></div>
+<div class="card"><h3>Elevi 12–18</h3><p>Zilele școlii, excursii, tabere de vară. Pentru minori cerem acordul părinților.</p></div>
+<div class="card"><h3>Firme</h3><p>Team building pentru angajați.</p></div>
+<div class="card"><h3>Familii</h3><p>Festivaluri și zilele orașului.</p></div>
+</div></div></section>
+
+<section id="comanda"><div class="w">
+<h2>Comandă setul tău</h2>
+<p class="mut">Completează datele, copiază comanda și trimite-o nouă pe Instagram la <b>@slackduel</b>.</p>
+<div class="card">
+<div class="row"><div><label for="n">Numele tău</label><input id="n" placeholder="Ex: Andrei"></div>
+<div><label for="p">Număr de seturi</label><input id="p" type="number" min="1" max="10" value="1"></div></div>
+<div class="row"><div><label for="d">Telefon sau Instagram</label><input id="d" type="text" placeholder="Ex: 07xx xxx xxx"></div>
+<div><label for="t">Varianta</label><select id="t"><option>Duel 1 contra 1</option><option>Turneu</option><option>Versiune joasă pentru copii</option></select></div></div>
+<label for="l">Oraș și adresă de livrare</label><input id="l" placeholder="Ex: oraș, stradă, număr">
+<p style="margin-top:16px"><button class="btn" id="go" type="button">Generează comanda</button></p>
+<div id="out"></div>
+</div></div></section>
+
+<section class="alt-bg qr"><div class="w">
+<h2>Scanează și comandă</h2>
+<p class="mut">Arată codul prietenilor: duce direct la această pagină.</p>
+<div id="qr"></div>
+</div></section>
+
+<footer><div class="w">SlackDuel · @slackduel · #slackduel<br>Proiect de educație antreprenorială. Prețurile sunt orientative.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+var PAGE_URL="https://claude.ai/artifact/XHaWErUqjE27PWTNoNvxTR";
+try{
+  var q=qrcode(0,"M");q.addData(PAGE_URL);q.make();
+  var im=new Image();im.alt="Cod QR SlackDuel";im.src=q.createDataURL(10,2);
+  document.getElementById("qr").appendChild(im);
+}catch(e){document.getElementById("qr").textContent="Codul QR nu s-a putut încărca.";}
+document.getElementById("go").onclick=function(){
+  var g=function(i){return document.getElementById(i).value.trim()};
+  var msg="Salut! Vreau să comand setul SlackDuel.\nNume: "+(g("n")||"-")+"\nNumăr de seturi: "+g("p")+"\nContact: "+(g("d")||"-")+"\nVarianta: "+g("t")+"\nLivrare la: "+(g("l")||"-");
+  var o=document.getElementById("out");o.style.display="block";o.textContent=msg;
+  try{navigator.clipboard.writeText(msg).then(function(){o.textContent=msg+"\n\n✓ Copiată. Trimite-o la @slackduel.";})}catch(e){}
+};
+</script>
+</body>
+</html>

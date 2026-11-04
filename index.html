@@ -69,10 +69,11 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:.9rem}
 <section><div class="w">
 <h2>Setul SlackDuel</h2>
 <div class="price">
-<div class="card"><div class="big">1 set</div><p>Tot ce ai nevoie pentru duel, gata de montat în aproximativ 30 de minute.</p></div>
+<div class="card"><div class="big">820 lei</div><p>Setul standard: tot ce ai nevoie pentru duel, gata de montat în aproximativ 30 de minute.</p></div>
+<div class="card"><div class="big">850 lei</div><p>Setul pentru copii: versiune joasă, adaptată celor mici.</p></div>
 <div class="card"><h3>Ambalaj</h3><p>Geantă de transport cu fermoar, din textil rezistent, în verde-teal și portocaliu. Electronica vine în cutie rigidă, iar săbiile în husă.</p></div>
 </div>
-<p class="mut" style="margin-top:14px">Prețul setului îl anunțăm în curând. Scrie-ne pe @slackduel.</p>
+<p class="mut" style="margin-top:14px">Prețurile sunt pentru un set complet. Comenzile se primesc pe @slackduel.</p>
 </div></section>
 
 <section class="alt-bg"><div class="w">
@@ -91,7 +92,7 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:.9rem}
 <div class="row"><div><label for="n">Numele tău</label><input id="n" placeholder="Ex: Andrei"></div>
 <div><label for="p">Număr de seturi</label><input id="p" type="number" min="1" max="10" value="1"></div></div>
 <div class="row"><div><label for="d">Telefon sau Instagram</label><input id="d" type="text" placeholder="Ex: 07xx xxx xxx"></div>
-<div><label for="t">Varianta</label><select id="t"><option>Duel 1 contra 1</option><option>Turneu</option><option>Versiune joasă pentru copii</option></select></div></div>
+<div><label for="t">Setul dorit</label><select id="t"><option>Set standard (820 lei)</option><option>Set pentru copii (850 lei)</option></select></div></div>
 <label for="l">Oraș și adresă de livrare</label><input id="l" placeholder="Ex: oraș, stradă, număr">
 <p style="margin-top:16px"><button class="btn" id="go" type="button">Generează comanda</button></p>
 <div id="out"></div>
@@ -107,7 +108,7 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:.9rem}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
-var PAGE_URL="https://claude.ai/artifact/XHaWErUqjE27PWTNoNvxTR";
+var PAGE_URL="https://repsterlapt.github.io/slack50/";
 try{
   var q=qrcode(0,"M");q.addData(PAGE_URL);q.make();
   var im=new Image();im.alt="Cod QR SlackDuel";im.src=q.createDataURL(10,2);
@@ -115,7 +116,7 @@ try{
 }catch(e){document.getElementById("qr").textContent="Codul QR nu s-a putut încărca.";}
 document.getElementById("go").onclick=function(){
   var g=function(i){return document.getElementById(i).value.trim()};
-  var msg="Salut! Vreau să comand setul SlackDuel.\nNume: "+(g("n")||"-")+"\nNumăr de seturi: "+g("p")+"\nContact: "+(g("d")||"-")+"\nVarianta: "+g("t")+"\nLivrare la: "+(g("l")||"-");
+  var msg="Salut! Vreau să comand setul SlackDuel.\nNume: "+(g("n")||"-")+"\nNumăr de seturi: "+g("p")+"\nContact: "+(g("d")||"-")+"\nSet: "+g("t")+"\nLivrare la: "+(g("l")||"-");
   var o=document.getElementById("out");o.style.display="block";o.textContent=msg;
   try{navigator.clipboard.writeText(msg).then(function(){o.textContent=msg+"\n\n✓ Copiată. Trimite-o la @slackduel.";})}catch(e){}
 };

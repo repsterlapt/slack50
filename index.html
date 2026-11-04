@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SlackDuel – Ține echilibrul. Câștigă duelul!</title>
+<title>Slack50 – Ține echilibrul. Câștigă duelul!</title>
 <style>
-:root{--bg:#fbf8f3;--surf:#fff;--tx:#17302f;--mut:#5b6f6e;--teal:#0f7f80;--tealD:#0a5c5d;--or:#f26a1b;--bd:#e3dccf;--on:#fff;
+:root{--bg:#fbf8f3;--surf:#fff;--tx:#17302f;--mut:#5b6f6e;--teal:#0f7f80;--or:#f26a1b;--bd:#e3dccf;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b1b;--surf:#152727;--tx:#eef5f4;--mut:#9fb5b3;--teal:#2bb3b4;--tealD:#1a8a8b;--or:#ff8a45;--bd:#274141}}
-:root[data-theme="dark"]{--bg:#0e1b1b;--surf:#152727;--tx:#eef5f4;--mut:#9fb5b3;--teal:#2bb3b4;--tealD:#1a8a8b;--or:#ff8a45;--bd:#274141}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b1b;--surf:#152727;--tx:#eef5f4;--mut:#9fb5b3;--teal:#2bb3b4;--or:#ff8a45;--bd:#274141}}
+:root[data-theme="dark"]{--bg:#0e1b1b;--surf:#152727;--tx:#eef5f4;--mut:#9fb5b3;--teal:#2bb3b4;--or:#ff8a45;--bd:#274141}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
 .w{max-width:980px;margin:0 auto;padding:0 20px}
@@ -16,11 +16,11 @@ section{padding:56px 0}
 h1,h2,h3{line-height:1.15;margin:0 0 12px}
 h2{font-size:clamp(1.6rem,4vw,2.1rem)}
 p{margin:0 0 12px}.mut{color:var(--mut)}
-.hero{background:var(--teal);color:#fff;padding:64px 0 72px;text-align:center}
+.hero{background:#0f7f80;color:#fff;padding:64px 0 72px;text-align:center}
 .hero .tag{letter-spacing:.14em;font-size:.8rem;opacity:.85}
-.hero h1{font-size:clamp(2.6rem,9vw,4.6rem);margin:8px 0}
+.hero h1{font-size:clamp(2.8rem,10vw,5rem);margin:8px 0}
 .hero h1 span{color:#ffd9bf}
-.hero p{font-size:1.2rem;max-width:560px;margin:0 auto 24px}
+.hero p{font-size:1.2rem;max-width:580px;margin:0 auto 24px}
 .btn{display:inline-block;background:var(--or);color:#fff;font-weight:700;padding:14px 26px;border-radius:999px;text-decoration:none;border:0;font-size:1rem;cursor:pointer}
 .btn.alt{background:transparent;border:2px solid #fff;margin-left:8px}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
@@ -29,13 +29,14 @@ p{margin:0 0 12px}.mut{color:var(--mut)}
 .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--or);color:#fff;font-weight:700;margin-bottom:10px}
 ul.ck{list-style:none;padding:0;margin:0}ul.ck li{padding:6px 0 6px 28px;position:relative}
 ul.ck li::before{content:"✓";position:absolute;left:0;color:var(--or);font-weight:700}
-.price{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.price .big{font-size:3rem;font-weight:800;color:var(--or);line-height:1}
+.big{font-size:2.8rem;font-weight:800;color:var(--or);line-height:1;margin-bottom:6px}
 .alt-bg{background:var(--surf);border-block:1px solid var(--bd)}
 label{display:block;font-weight:600;margin:12px 0 4px;font-size:.92rem}
 input,select,textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit}
 .row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
 @media(max-width:560px){.row{grid-template-columns:1fr}.btn.alt{margin:10px 0 0}}
+.chk{display:flex;gap:8px;align-items:center;font-weight:400;margin-top:12px}.chk input{width:auto}
+#tot{font-size:1.4rem;font-weight:800;margin:16px 0 4px}
 #out{display:none;margin-top:16px;padding:14px;border-radius:12px;background:var(--bg);border:1px dashed var(--teal);white-space:pre-wrap}
 .qr{text-align:center}
 #qr img{width:min(260px,70vw);height:auto;background:#fff;padding:12px;border-radius:16px;border:1px solid var(--bd)}
@@ -45,80 +46,105 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:.9rem}
 <body>
 <header class="hero"><div class="w">
 <div class="tag">DUEL DE ECHILIBRU PE SLACKLINE</div>
-<h1>Slack<span>Duel</span></h1>
-<p>Ține echilibrul. Câștigă duelul! Doi jucători, săbii moi din spumă, iar cine cade primul pierde.</p>
+<h1>Slack<span>50</span></h1>
+<p>Ține echilibrul. Câștigă duelul! Un set complet de duel pe slackline, pentru acasă, școli și tabere.</p>
 <a class="btn" href="#comanda">Comandă setul</a><a class="btn alt" href="#cum">Cum funcționează</a>
 </div></header>
 
 <section id="cum"><div class="w">
 <h2>Cum funcționează</h2>
-<p class="mut">Un set complet de duel, pe care îl montezi singur, oriunde: acasă, în tabără sau la școală.</p>
+<p class="mut">Doi jucători, săbii din spumă și un slackline jos, deasupra saltelelor.</p>
 <div class="grid">
-<div class="card"><div class="num">1</div><h3>Urcă pe linie</h3><p>Doi jucători pe un slackline lat și jos, cu saltele de protecție dedesubt.</p></div>
-<div class="card"><div class="num">2</div><h3>Duelează-te</h3><p>Fiecare primește o sabie moale din spumă. Scopul: să-ți dezechilibrezi adversarul.</p></div>
-<div class="card"><div class="num">3</div><h3>Scor automat</h3><p>Salteaua cu senzori și LED arată imediat cine a atins primul solul.</p></div>
+<div class="card"><div class="num">1</div><h3>Montezi setul</h3><p>Întinzi linia lată și așezi saltelele. Montajul durează aproximativ 30 de minute.</p></div>
+<div class="card"><div class="num">2</div><h3>Duelați-vă</h3><p>Doi jucători pe linie, fiecare cu o sabie moale din spumă. Scopul: să-ți dezechilibrezi adversarul.</p></div>
+<div class="card"><div class="num">3</div><h3>Cine cade primul, pierde</h3><p>Cine atinge primul salteaua pierde. Un prieten arbitrează, după regulamentul din set.</p></div>
 </div></div></section>
 
 <section class="alt-bg"><div class="w">
-<h2>Arena SlackDuel</h2>
+<h2>Setul Slack50</h2>
 <div class="grid">
-<div class="card"><h3>Ce conține kitul</h3><ul class="ck"><li>Slackline lat și ancore</li><li>Două săbii din spumă</li><li>Saltele de protecție</li><li>Modul cu senzori și LED</li><li>Regulament și instrucțiuni</li></ul></div>
-<div class="card"><h3>De ce e special</h3><ul class="ck"><li>Sigur: linie joasă, saltele, instructor</li><li>Mobil: montaj în aproximativ 30 de minute</li><li>Scorul se înregistrează automat</li><li>Variante: 1 contra 1, turneu, versiune joasă pentru copii</li></ul></div>
+<div class="card"><h3>Ce conține</h3><ul class="ck"><li>Slackline lat și ancore</li><li>Două săbii din spumă</li><li>Saltele de protecție</li><li>Geantă de transport</li><li>Regulament și instrucțiuni</li></ul></div>
+<div class="card"><h3>De ce Slack50</h3><ul class="ck"><li>Sigur: linie joasă, saltele groase, săbii moi</li><li>Mobil: se montează oriunde, chiar și într-o sală</li><li>Îl cumperi o dată și te joci oricând</li><li>Garanție și instrucțiuni în română</li></ul></div>
+<div class="card"><h3>Pe viitor</h3><p>Lucrăm la o saltea cu senzori, care va arăta singură cine a căzut primul. Încă nu face parte din set.</p></div>
 </div></div></section>
 
 <section><div class="w">
-<h2>Setul SlackDuel</h2>
-<div class="price">
-<div class="card"><div class="big">820 lei</div><p>Setul standard: tot ce ai nevoie pentru duel, gata de montat în aproximativ 30 de minute.</p></div>
-<div class="card"><div class="big">850 lei</div><p>Setul pentru copii: versiune joasă, adaptată celor mici.</p></div>
-<div class="card"><h3>Ambalaj</h3><p>Geantă de transport cu fermoar, din textil rezistent, în verde-teal și portocaliu. Electronica vine în cutie rigidă, iar săbiile în husă.</p></div>
-</div>
-<p class="mut" style="margin-top:14px">Prețurile sunt pentru un set complet. Comenzile se primesc pe @slackduel.</p>
-</div></section>
+<h2>Alege setul</h2>
+<div class="grid">
+<div class="card"><div class="big">1.090 lei</div><h3>Set standard</h3><p>Kitul complet de duel 1 contra 1.</p></div>
+<div class="card"><div class="big">850 lei</div><h3>Set junior</h3><p>Mai mic, cu linie joasă, pentru copii.</p></div>
+<div class="card"><h3>Promoții</h3><ul class="ck"><li>Lansare: săbii de rezervă cadou la primele 20 de seturi</li><li>Școli și tabere: 10% reducere la două seturi</li></ul></div>
+</div></div></section>
 
 <section class="alt-bg"><div class="w">
 <h2>Pentru cine?</h2>
 <div class="grid">
 <div class="card"><h3>Tineri 18–30</h3><p>Grupuri de prieteni și studenți.</p></div>
-<div class="card"><h3>Elevi 12–18</h3><p>Zilele școlii, excursii, tabere de vară. Pentru minori cerem acordul părinților.</p></div>
-<div class="card"><h3>Firme</h3><p>Team building pentru angajați.</p></div>
-<div class="card"><h3>Familii</h3><p>Festivaluri și zilele orașului.</p></div>
+<div class="card"><h3>Elevi 12–18</h3><p>Curte, tabără și ieșiri cu prietenii. Adesea, părinții cumpără setul.</p></div>
+<div class="card"><h3>Școli și tabere</h3><p>Ore de sport, zilele școlii, tabere.</p></div>
+<div class="card"><h3>Firme și familii</h3><p>Team building și pauze active, sau cadou pentru copii.</p></div>
 </div></div></section>
 
 <section id="comanda"><div class="w">
 <h2>Comandă setul tău</h2>
-<p class="mut">Completează datele, copiază comanda și trimite-o nouă pe Instagram la <b>@slackduel</b>.</p>
+<p class="mut">Livrare prin curier în toată țara sau ridicare personală, în Pitești. Te contactăm ca să confirmăm comanda.</p>
 <div class="card">
-<div class="row"><div><label for="n">Numele tău</label><input id="n" placeholder="Ex: Andrei"></div>
-<div><label for="p">Număr de seturi</label><input id="p" type="number" min="1" max="10" value="1"></div></div>
-<div class="row"><div><label for="d">Telefon sau Instagram</label><input id="d" type="text" placeholder="Ex: 07xx xxx xxx"></div>
-<div><label for="t">Setul dorit</label><select id="t"><option>Set standard (820 lei)</option><option>Set pentru copii (850 lei)</option></select></div></div>
-<label for="l">Oraș și adresă de livrare</label><input id="l" placeholder="Ex: oraș, stradă, număr">
-<p style="margin-top:16px"><button class="btn" id="go" type="button">Generează comanda</button></p>
+<div class="row"><div><label for="n">Numele tău</label><input id="n" autocomplete="name"></div>
+<div><label for="c">Telefon sau email</label><input id="c" autocomplete="tel"></div></div>
+<div class="row"><div><label for="t">Setul dorit</label><select id="t"><option value="1090">Set standard (1.090 lei)</option><option value="850">Set junior (850 lei)</option></select></div>
+<div><label for="q">Număr de seturi</label><input id="q" type="number" min="1" max="20" value="1"></div></div>
+<div class="row"><div><label for="m">Livrare</label><select id="m"><option>Curier</option><option>Ridicare personală în Pitești</option></select></div>
+<div id="adw"><label for="a">Adresa de livrare</label><input id="a" placeholder="Oraș, stradă, număr" autocomplete="street-address"></div></div>
+<label class="chk" for="s"><input id="s" type="checkbox"> Comand pentru o școală sau o tabără (10% reducere la două seturi)</label>
+<div id="tot"></div>
+<button class="btn" id="go" type="button">Trimite comanda</button>
 <div id="out"></div>
 </div></div></section>
 
 <section class="alt-bg qr"><div class="w">
 <h2>Scanează și comandă</h2>
-<p class="mut">Arată codul prietenilor: duce direct la această pagină.</p>
+<p class="mut">Codul duce direct la această pagină.</p>
 <div id="qr"></div>
 </div></section>
 
-<footer><div class="w">SlackDuel · @slackduel · #slackduel<br>Proiect de educație antreprenorială. Prețurile sunt orientative.</div></footer>
+<footer><div class="w">Slack50 · @slack50 · #slack50<br>Proiect de educație antreprenorială.</div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
 var PAGE_URL="https://repsterlapt.github.io/slack50/";
+// Unde ajung comenzile: completează UNA dintre ele.
+var ORDER_ENDPOINT=""; // ex: https://formspree.io/f/xxxxxxx
+var ORDER_EMAIL="";    // ex: slack50@exemplu.ro
 try{
-  var q=qrcode(0,"M");q.addData(PAGE_URL);q.make();
-  var im=new Image();im.alt="Cod QR SlackDuel";im.src=q.createDataURL(10,2);
+  var qq=qrcode(0,"M");qq.addData(PAGE_URL);qq.make();
+  var im=new Image();im.alt="Cod QR Slack50";im.src=qq.createDataURL(10,2);
   document.getElementById("qr").appendChild(im);
 }catch(e){document.getElementById("qr").textContent="Codul QR nu s-a putut încărca.";}
-document.getElementById("go").onclick=function(){
-  var g=function(i){return document.getElementById(i).value.trim()};
-  var msg="Salut! Vreau să comand setul SlackDuel.\nNume: "+(g("n")||"-")+"\nNumăr de seturi: "+g("p")+"\nContact: "+(g("d")||"-")+"\nSet: "+g("t")+"\nLivrare la: "+(g("l")||"-");
-  var o=document.getElementById("out");o.style.display="block";o.textContent=msg;
-  try{navigator.clipboard.writeText(msg).then(function(){o.textContent=msg+"\n\n✓ Copiată. Trimite-o la @slackduel.";})}catch(e){}
+var $=function(i){return document.getElementById(i)};
+function total(){
+  var q=Math.max(1,parseInt($("q").value)||1),p=parseInt($("t").value);
+  var t=q*p,d=($("s").checked&&q>=2)?Math.round(t*0.1):0;
+  $("tot").textContent="Total: "+(t-d).toLocaleString("ro-RO")+" lei"+(d?" (inclusiv reducere de "+d.toLocaleString("ro-RO")+" lei)":"");
+  $("adw").style.display=$("m").value==="Curier"?"block":"none";
+  return {q:q,set:$("t").options[$("t").selectedIndex].text,tot:$("tot").textContent};
+}
+["t","q","s","m"].forEach(function(i){$(i).addEventListener("input",total)});total();
+$("go").onclick=function(){
+  var o=total(),out=$("out");
+  if(!$("n").value.trim()||!$("c").value.trim()||($("m").value==="Curier"&&!$("a").value.trim())){
+    out.style.display="block";out.textContent="Completează numele, contactul și adresa de livrare.";return;}
+  var msg="Comandă Slack50\nNume: "+$("n").value.trim()+"\nContact: "+$("c").value.trim()+"\nSet: "+o.set+"\nBucăți: "+o.q+"\nLivrare: "+$("m").value+($("m").value==="Curier"?"\nAdresa: "+$("a").value.trim():"")+"\nȘcoală/tabără: "+($("s").checked?"da":"nu")+"\n"+o.tot;
+  out.style.display="block";
+  if(ORDER_ENDPOINT){
+    fetch(ORDER_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({mesaj:msg,nume:$("n").value,contact:$("c").value})})
+    .then(function(r){out.textContent=r.ok?"Comanda a fost trimisă. Te contactăm în curând!":"Comanda nu s-a trimis. Încearcă din nou.";})
+    .catch(function(){out.textContent="Comanda nu s-a trimis. Încearcă din nou.";});
+  }else if(ORDER_EMAIL){
+    out.textContent="Se deschide aplicația de email. Trimite mesajul de acolo.";
+    location.href="mailto:"+ORDER_EMAIL+"?subject="+encodeURIComponent("Comandă Slack50")+"&body="+encodeURIComponent(msg);
+  }else{
+    out.textContent=msg+"\n\nÎncă nu am configurat unde ajung comenzile.";
+  }
 };
 </script>
 </body>
